@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="typo.css">
+	<script type="text/javascript" src="showdown.min.js"></script>
+	<style type="text/css">
+	html{
+		background: white;
+	}
+	body{
+		padding: 10px;
+	}
+    .invert{
+    	filter: invert(100%);
+    	-webkit-filter: invert(100%);
+    }
+	</style>
+</head>
+<body>
+
+<article class="typo" id="container"></article>
+
+</body>
+<script type="text/javascript">
+var article = document.getElementById('container')
+function loadNote(content) {
+	var markdownHTML = (new showdown.Converter()).makeHtml(content)
+	article.innerHTML = markdownHTML
+}
+function enableDarkTheme(enabled) {
+	document.documentElement.className = enabled ? "invert": ""
+}
+</script>
+
+</html>
